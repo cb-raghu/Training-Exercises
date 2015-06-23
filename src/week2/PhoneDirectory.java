@@ -2,75 +2,176 @@ import java.util.*;
 
 class PhoneDirectory
 {
-	public static Map<String,Person> phoneDirectory = HashMap<String,Person>();
-	List<Phone> phoneList = new ArrayList<Phone>();
+	public static Map<String,List<Person>> phoneDirectory = new HashMap<String,List<Person>>();
+	//List<Phone> phoneList = new ArrayList<Phone>();
 
 	public static void main(String[] args)
 	{
 		Scanner scan = new Scanner(System.in);
+		String data;
 		populateData();
 
-		System.out.println("1) Search by name\nPartial search by name\nSearch by phone number");
+		System.out.println("1) Search by name\n2)Partial search by name\n3)Search by phone number");
 		int choice = scan.nextInt();
 
 		if(choice == 1)
 		{
-			nameSearch();
+			System.out.println("Enter a name to search : ");
+			data = scan.next();
+			nameSearch(data);
 		}
 		else if(choice == 2)
 		{
-
+			System.out.println("Enter a name to search : ");
+			data = scan.next();
+			partialNameSearch(data);
 		}
 		else
 		{
-
+			System.out.println("Enter a phone to search : ");
+			data = scan.next();
+			phoneNumberSearch(data);
 		}
 
 	}
 
-	public static void nameSearch()
+	public static void phoneNumberSearch(String number)
 	{
+		String output;
+		
+		for(List<Person> personList : phoneDirectory.values())
+		{
+			for(Person person : personList)
+			{
+			output = String.format("Name : %s \t Address : %s \nPhone List",person.name,person.address);						
+
+				for (Phone phone : person.phoneList) 
+				{
+					if(phone.mobile != null && phone.mobile.equals(number))
+					{
+						System.out.println(output);
+						System.out.println("Mobile : " + phone.mobile);
+					}
+					else if(phone.work != null && phone.work.equals(number))
+					{
+						System.out.println(output);
+						System.out.println("Work : " + phone.work);
+					}						
+					else if(phone.home != null && phone.home.equals(number))
+					{
+						System.out.println(output);
+						System.out.println("Home : " + phone.home);
+					}
+				}
+			}
+			
+		}
+
+	}
+
+
+	public static void partialNameSearch(String name)
+	{
+		String output;
+
+		for(List<Person> personList : phoneDirectory.values())
+		{
+		
+			for(Person person : personList)
+			{
+				output = String.format("Name : %s \t Address : %s \nPhone List",person.name,person.address);
+				System.out.println(output);
+
+				if(person.name.indexOf(name) != -1)
+				{
+
+					for (Phone phone : person.phoneList) 
+					{
+						if(phone.mobile != null)
+							System.out.println("Mobile : " + phone.mobile);
+						if(phone.work != null)
+							System.out.println("Work : " + phone.work);
+						if(phone.home != null)
+							System.out.println("Home : " + phone.home);
+					}
+				}
+			}
+		}
+			
+		
+
+
+	}
+
+
+	public static void nameSearch(String name)
+	{
+		List<Person> personList = phoneDirectory.get(name);
+		String output;
+
+		if(personList == null)
+		{
+			System.out.println("No entry found!!");
+		}
+		else
+		{
+			for (Person person : personList) {
+				output = String.format("Name : %s \t Address : %s \nPhone List",person.name,person.address);
+				System.out.println(output);
+				for (Phone phone : person.phoneList ) {
+					if(phone.mobile != null)
+						System.out.println("Mobile : " + phone.mobile);
+					if(phone.work != null)
+						System.out.println("Work : " + phone.work);
+					if(phone.home != null)
+						System.out.println("Home : " + phone.home);
+				}
+
+			}
+		}
+
 
 	}
 
 
 	public static void addPerson(Person person)
 	{
-		if(phoneDirectory.get(name) == null)
+		List<Person> personList = phoneDirectory.get(person.name);
+		if(personList == null)
 		{
 			personList = new ArrayList<Person>();
-			phoneDirectory.put(name,person);
+			phoneDirectory.put(person.name,personList);
 		}
 		personList.add(person);
 
 	}
 
-	pubic static void populateData()
+	public static void populateData()
 	{
-		Phone phone;
+		
 		Person person;
 		
-		phoneList =  new ArrayList<Phone>(); 
-		phone = Phone.MOBILE;
-		phone.addNumber("12323224");		 
+		List<Phone> phoneList =  new ArrayList<Phone>(); 
+		Phone phone = new Phone();
+		phone.addMobileNumber("12323224");		 
 		phoneList.add(phone); 
 		person = new Person("raghu","xxxxx",phoneList);            
 		addPerson(person);
 
 		phoneList =  new ArrayList<Phone>();  
-		phone = Phone.MOBILE;
-		phone.addNumber("884344");
+		phone = new Phone();
+		phone.addMobileNumber("884344");
 		phoneList.add(phone);  
-		phone = Phone.HOME;
-		phone.addNumber("997766656");
+		phone = new Phone();
+		phone.addWorkNumber("997766656");
 		phoneList.add(phone); 
-		person = new Person("raghu","xxxxx",phoneList);		            
+		person = new Person("rag","xxxxx",phoneList);		            
 		addPerson(person);
 
 
 		phoneList =  new ArrayList<Phone>(); 
-		phone = Phone.MOBILE;
-		phone.addNumber("7777773333");		 
+		phone = new Phone();
+		phone.addWorkNumber("7777773333");		 
 		phoneList.add(phone); 
 		person =   new Person("raghu","ttttttt",phoneList);	           
 		addPerson(person);
@@ -93,22 +194,27 @@ class Person
 
 }
 
-enum Phone{
-	MOBILE,
-	HOME,
-	WORK;
+class Phone{
 
-	public String number;
+	String mobile;
+	String home;
+	String work;
+	
 
-	public void addNumber(String number)
+	public void addMobileNumber(String mobile)
 	{
-		this.number = number;
+		this.mobile = mobile;
 	}
 
-	public String getNumber(String number)
+	public void addHomeNumber(String home)
 	{
-		return number;
+		this.home = home;
 	}
+
+	public void addWorkNumber(String work)
+	{
+		this.work = work;
+	}	
 	
 }
 
