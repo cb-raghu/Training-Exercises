@@ -1,0 +1,2 @@
+Customer Id,Subscription Id,Invoice Id,Invoice Date,Amount,Customer Details
+Cust_001,Sub_001,Inv_001,2015-05-05,120,First Name : Raghu;Last Name : j;Email : raghu@chargebee.com;

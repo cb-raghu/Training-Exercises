@@ -1,0 +1,44 @@
+{
+    "configuration": [
+        {
+            "Column Name": "Customer Id",
+            "values": [
+                "Customer Id"
+            ]
+        },
+        {
+            "Column Name": "Subscription Id",
+            "values": [
+                "Subscription Id"
+            ]
+        },
+        {
+            "Column Name": "Invoice Id",
+            "values": [
+                "Invoice Id"
+            ]
+        },
+        {
+            "Column Name": "Invoice Date",
+            "values": [
+                "Invoice Date"
+            ],
+            "Date format" : "MM-dd-yyyy hh:mm"
+        },
+        {
+            "Column Name": "Amount",
+            "values": [
+                "Amount"
+            ],
+            "Divide By" : "100" 
+        },
+        {
+            "Column Name": "Customer Details",
+            "values": [
+                "First Name",
+                "Last Name",
+                "Email"
+            ]
+        }
+    ]
+}

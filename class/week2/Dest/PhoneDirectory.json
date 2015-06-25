@@ -1,0 +1,40 @@
+{
+"phoneDirectory": [
+        {
+            "name": "raghu",
+            "address": "ooty",
+            "phone": [
+                {
+                    "mobile": "121213"
+                },
+                {
+                    "work": "232323"
+                },
+                {
+                    "home": "454545545"
+                }
+            ]
+        },
+        {
+            "name": "rag",
+            "address": "ooty",
+            "phone": [
+                {
+                    "mobile": "9999999213"
+                },
+                {
+                    "home": "002324335"
+                }
+            ]
+        },
+        {
+            "name": "dinesh",
+            "address": "cbe",
+            "phone": [
+                {
+                    "home": "765467"
+                }
+            ]
+        }
+    ]
+}
