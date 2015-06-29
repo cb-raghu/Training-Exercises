@@ -1,2 +1,3 @@
-Customer Id,Subscription Id,Invoice Id,Invoice Date,Amount,Customer Details
-Cust_001,Sub_001,Inv_001,2015-05-05,120,First Name : Raghu;Last Name : j;Email : raghu@chargebee.com;
+Subscription Id,Invoice Id,Invoice Date,Amount,Customer Details,Customer Id
+Sub_001,Inv_001,05-27-2014 09:20,1.2,First Name : Raghu;Last Name : j;Email : raghu@chargebee.com;,Cust_001
+Sub_002,Inv_002,01-10-2014 11:30,1.2,First Name : Suraj;Last Name : j;Email : suraj@gmail.com;,Cust_002

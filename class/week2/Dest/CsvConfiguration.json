@@ -1,11 +1,6 @@
 {
     "configuration": [
-        {
-            "Column Name": "Customer Id",
-            "values": [
-                "Customer Id"
-            ]
-        },
+        
         {
             "Column Name": "Subscription Id",
             "values": [
@@ -23,7 +18,8 @@
             "values": [
                 "Invoice Date"
             ],
-            "Date format" : "MM-dd-yyyy hh:mm"
+            "Input Date format" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+            "Output Date format" : "MM-dd-yyyy hh:mm"
         },
         {
             "Column Name": "Amount",
@@ -38,6 +34,12 @@
                 "First Name",
                 "Last Name",
                 "Email"
+            ]
+        },
+        {
+            "Column Name": "Customer Id",
+            "values": [
+                "Customer Id"
             ]
         }
     ]
