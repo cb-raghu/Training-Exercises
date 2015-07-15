@@ -1,2 +1,5 @@
 /TrainingAssignments/nbproject/private/
 /TrainingAssignments/build/
+
+#OSX
+.DS_Store
