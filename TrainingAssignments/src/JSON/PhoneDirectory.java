@@ -83,9 +83,7 @@ class PhoneDirectory {
                     }
                 }
             }
-
-        }
-
+        }   
     }
 
     public static void partialNameSearch(String name) {
