@@ -3,3 +3,5 @@
 
 #OSX
 .DS_Store
+/ServicePortal/nbproject/private/
+/ServicePortal/build/
